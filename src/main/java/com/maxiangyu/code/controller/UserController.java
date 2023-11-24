@@ -27,4 +27,10 @@ public class UserController {
         userService.deleteUser(id);
         return Result.success();
     }
+
+    @GetMapping("")
+    public Result getUsers() {
+        return Result.success(userService.getAllUsers());
+    }
+
 }
