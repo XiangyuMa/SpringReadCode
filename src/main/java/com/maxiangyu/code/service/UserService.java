@@ -23,4 +23,8 @@ public class UserService {
         userMapper.delete(id);
         return Result.success();
     }
+
+    public Result getAllUsers(){
+        return Result.success(userMapper.getAllUsers());
+    }
 }

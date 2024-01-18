@@ -15,4 +15,8 @@
     <delete id="delete" parameterType="Integer">
         delete from user where id=#{id};
     </delete>
+
+    <select id="getAllUsers" resultType="com.maxiangyu.code.entity.User">
+        select * from user
+    </select>
 </mapper>
