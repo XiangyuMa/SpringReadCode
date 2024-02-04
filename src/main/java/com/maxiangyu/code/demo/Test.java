@@ -1,10 +1,7 @@
 package com.maxiangyu.code.demo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 /**
  * @author :马翔宇
@@ -47,15 +44,12 @@ public class Test {
         }*/
 
         //第三种方式与第二种差不多，但不需要修正下标
-        for(int i = list.size()-1;i>=0;i--){
+        for(int i = list.size()-1;i >= 0;i--) {
             String s = list.get(i);
             if(s.equals("java")) {
                 list.remove(i);
             }
         }
         System.out.println(list.toString());
-        System.out.println(list.stream().collect(Collectors.toList()));
-        Scanner scanner = new Scanner(System.in);
-        scanner.close();
     }
 }
