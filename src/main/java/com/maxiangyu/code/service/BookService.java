@@ -12,7 +12,6 @@ import java.util.TimeZone;
 
 @Service
 public class BookService {
-    @Autowired
     private BookMapper bookMapper;
 
     public int saveBook(Book book){
@@ -20,7 +19,7 @@ public class BookService {
         specialDate.set(2022,5,31);
         Calendar currentDate = book.getPublicationDate();
         if(book != null && currentDate.after(specialDate)){
-            return bookMapper.save(book);
+            return bookMapper.insert(book);
         }
         return -1;
     }
@@ -31,6 +30,6 @@ public class BookService {
      */
     public List<Book> getAllBooks(){
         String title = "中国";
-        return bookMapper.getAllBooks(title);
+        return null;
     }
 }

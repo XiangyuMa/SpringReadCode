@@ -1,5 +1,9 @@
 package com.maxiangyu.code.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +14,7 @@ public class Book {
     /**
      * 主键
      */
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
     /**
      * 图书编码
@@ -34,4 +39,14 @@ public class Book {
      * 出版日期
      */
     private Calendar publicationDate;
+    /**
+     * 创建时间
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private  Date updateTime;
 }
