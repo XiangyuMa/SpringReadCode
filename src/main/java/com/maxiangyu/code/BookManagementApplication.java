@@ -6,13 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReadCodeApplication {
+public class BookManagementApplication {
 
-	private final static Logger log = LoggerFactory.getLogger(ReadCodeApplication.class);
+	private final static Logger log = LoggerFactory.getLogger(BookManagementApplication.class);
 
 	public static void main(String[] args) {
-		log.info("正在启动springboot应用...");
-		SpringApplication.run(ReadCodeApplication.class, args);
+		log.info("图书管理系统正在启动...");
+		SpringApplication.run(BookManagementApplication.class, args);
 	}
 
 }
