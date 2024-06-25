@@ -1,5 +1,6 @@
 package com.maxiangyu.code;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.maxiangyu.code.entity.Book;
 import com.maxiangyu.code.mapper.BookMapper;
@@ -31,10 +32,11 @@ class BookManagementApplicationTests {
 	public  void tetsAdd(){
 		log.info("testAdd()");
 		Book book = new Book();
-		book.setAuthor("王勃");
-		book.setCode("datang");
-		book.setContent("落霞与孤鹜齐飞，秋水共长天一色");
-		book.setTitle("滕王阁序");
+		book.setAuthor("老舍");
+		book.setCode("675589");
+		book.setContent("讲述的是旧中国北平城里一个人力车夫祥子的悲剧故事");
+		book.setTitle("骆驼祥子");
+		book.setPrice(300);
 		bookMapper.insert(book);
 	}
 	@Test
@@ -111,5 +113,20 @@ class BookManagementApplicationTests {
 		log.info("逻辑删除");
 		int delete = bookMapper.deleteById(10019);
 		System.out.println(delete);
+	}
+	@Test
+	public void testSelectWrappper(){
+		QueryWrapper<Book> wrapper = new QueryWrapper<>();
+//		wrapper.ge("price",20);
+//		wrapper.le("price",280);
+//		wrapper.eq("price",300);
+//		wrapper.ne("title","中国");
+		wrapper.between("price",50,400);
+		wrapper.like("title","中国");
+		wrapper.orderByAsc("price");
+		wrapper.select("author","content","price");
+		wrapper.last("limit 1");
+		List<Book> bookList = bookMapper.selectList(wrapper);
+		System.out.println(bookList);
 	}
 }

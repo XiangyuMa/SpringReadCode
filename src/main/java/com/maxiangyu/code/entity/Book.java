@@ -63,4 +63,8 @@ public class Book {
     @TableLogic
     @TableField(fill = FieldFill.INSERT)
     private Integer deleted;
+    /**
+     * 价格
+     */
+    private Integer price;
 }
