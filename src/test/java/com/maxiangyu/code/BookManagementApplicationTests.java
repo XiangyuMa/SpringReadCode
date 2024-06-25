@@ -31,10 +31,10 @@ class BookManagementApplicationTests {
 	public  void tetsAdd(){
 		log.info("testAdd()");
 		Book book = new Book();
-		book.setAuthor("杜甫");
-		book.setCode("kaiyuan");
-		book.setContent("风急天高猿啸哀，渚清沙白鸟飞回");
-		book.setTitle("登高");
+		book.setAuthor("王勃");
+		book.setCode("datang");
+		book.setContent("落霞与孤鹜齐飞，秋水共长天一色");
+		book.setTitle("滕王阁序");
 		bookMapper.insert(book);
 	}
 	@Test
@@ -109,7 +109,7 @@ class BookManagementApplicationTests {
 	@Test
 	public void testDeleteLogic(){
 		log.info("逻辑删除");
-		int delete = bookMapper.deleteById(569);
+		int delete = bookMapper.deleteById(10019);
 		System.out.println(delete);
 	}
 }

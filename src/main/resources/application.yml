@@ -7,7 +7,15 @@ spring:
     username: root
     password: mxy713
 mybatis-plus:
-  mapper-locations: classpath:/mapper/*.xml    #mapper????
-  type-aliases-package: com.maxiangyu.code.entity    # ?????
+  global-config:
+    db-config:
+      #逻辑删除全局字段名
+      logic-delete-field: deleted
+      #逻辑未删除值(默认为 0)
+      logic-not-delete-value: 0
+      # 逻辑已删除值(默认为 1)
+      logic-delete-value: 1
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.maxiangyu.code.entity
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    #??SQL??
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
