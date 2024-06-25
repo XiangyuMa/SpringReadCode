@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -59,5 +60,7 @@ public class Book {
     /**
      * 删除标志 1:已删除 0:未删除
      */
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
     private Integer deleted;
 }

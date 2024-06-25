@@ -31,8 +31,10 @@ class BookManagementApplicationTests {
 	public  void tetsAdd(){
 		log.info("testAdd()");
 		Book book = new Book();
-		book.setAuthor("赵梦诗");
-		book.setTitle("中国地理校勘");
+		book.setAuthor("杜甫");
+		book.setCode("kaiyuan");
+		book.setContent("风急天高猿啸哀，渚清沙白鸟飞回");
+		book.setTitle("登高");
 		bookMapper.insert(book);
 	}
 	@Test
@@ -83,5 +85,31 @@ class BookManagementApplicationTests {
 		System.out.println("是否有下一页：" + page.hasNext());
 		System.out.println("是否有上一页：" + page.hasPrevious());
 
+	}
+	@Test
+	public void tetsDelete(){
+		log.info("物理删除：");
+		//物理删除
+		int delete = bookMapper.deleteById(10015);
+		System.out.println(delete);
+	}
+	@Test
+	public void testDeleteBatch(){
+		log.info("批量删除：");
+		int ids = bookMapper.deleteByIds(Arrays.asList(10001, 10002));
+		System.out.println(ids);
+	}
+	@Test
+	public void testDeleteByMap(){
+		log.info("通过map传参删除：");
+		Map<String,Object> map = new HashMap<>();
+		map.put("author","何为");
+		bookMapper.deleteByMap(map);
+	}
+	@Test
+	public void testDeleteLogic(){
+		log.info("逻辑删除");
+		int delete = bookMapper.deleteById(569);
+		System.out.println(delete);
 	}
 }
