@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.maxiangyu.code")
 public class BookManagementApplication {
 
 	private final static Logger log = LoggerFactory.getLogger(BookManagementApplication.class);

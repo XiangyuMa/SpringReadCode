@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -23,6 +22,7 @@ public class FillFieldMetaHandler implements MetaObjectHandler {
         log.info("insert fillfield execute...");
         this.setFieldValByName("createTime",new Date(),metaObject);
         this.setFieldValByName("updateTime",new Date(),metaObject);
+        this.setFieldValByName("version",1,metaObject);
     }
 
     @Override

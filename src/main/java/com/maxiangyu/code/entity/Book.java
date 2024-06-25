@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
@@ -49,4 +50,14 @@ public class Book {
      */
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private  Date updateTime;
+    /**
+     * 版本号
+     */
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
+    /**
+     * 删除标志 1:已删除 0:未删除
+     */
+    private Integer deleted;
 }
